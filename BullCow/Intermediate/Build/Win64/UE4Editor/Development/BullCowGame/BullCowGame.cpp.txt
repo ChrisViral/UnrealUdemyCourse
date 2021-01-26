@@ -1,0 +1,2 @@
+D:\Chris\Documents\Repositories\UnrealUdemyCourse\BullCow\Intermediate\Build\Win64\UE4Editor\Development\BullCowGame\Definitions.BullCowGame.h
+d:\chris\documents\repositories\unrealudemycourse\bullcow\source\bullcowgame\BullCowGame.h
