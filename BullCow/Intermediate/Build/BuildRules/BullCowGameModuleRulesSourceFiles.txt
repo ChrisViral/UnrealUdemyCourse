@@ -1,3 +1,0 @@
-D:\Chris\Documents\Repositories\UnrealUdemyCourse\BullCow\Source\BullCowGame\BullCowGame.Build.cs
-D:\Chris\Documents\Repositories\UnrealUdemyCourse\BullCow\Source\BullCowGame.Target.cs
-D:\Chris\Documents\Repositories\UnrealUdemyCourse\BullCow\Source\BullCowGameEditor.Target.cs
