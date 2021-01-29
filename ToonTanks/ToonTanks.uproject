@@ -5,15 +5,12 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "BullCowGame",
+			"Name": "ToonTanks",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"Engine"
 			]
 		}
-	],
-	"TargetPlatforms": [
-		"AllDesktop"
 	]
 }
