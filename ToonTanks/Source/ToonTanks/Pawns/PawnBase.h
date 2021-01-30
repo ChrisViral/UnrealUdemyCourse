@@ -7,8 +7,9 @@
 #include "PawnBase.generated.h"
 
 class UCapsuleComponent;
+class AProjectileBase;
 
-UCLASS()
+UCLASS(Abstract)
 class TOONTANKS_API APawnBase : public APawn
 {
     GENERATED_BODY()
@@ -16,13 +17,22 @@ class TOONTANKS_API APawnBase : public APawn
 public:
     APawnBase();
 
+protected:
+    virtual void LookAt(const FVector Target);
+
+    virtual void Fire();
+
+    virtual void OnDestroy();
+
 private:
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+    UPROPERTY(VisibleAnywhere, Category = "Components")
     UCapsuleComponent* Capsule;
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+    UPROPERTY(VisibleAnywhere, Category = "Components")
     UStaticMeshComponent* BaseMesh;
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+    UPROPERTY(VisibleAnywhere, Category = "Components")
     UStaticMeshComponent* TurretMesh;
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+    UPROPERTY(VisibleAnywhere, Category = "Components")
     USceneComponent* ProjectileSpawn;
+    UPROPERTY(EditAnywhere, Category = "Projectile")
+    TSubclassOf<AProjectileBase> ProjectileClass;
 };
