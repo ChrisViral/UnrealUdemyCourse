@@ -2,7 +2,9 @@
 
 #include "PawnBase.h"
 #include "Components/CapsuleComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "ToonTanks/Actors/ProjectileBase.h"
+#include "ToonTanks/Components/HealthComponent.h"
 
 APawnBase::APawnBase()
 {
@@ -19,6 +21,8 @@ APawnBase::APawnBase()
 
     ProjectileSpawn = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn"));
     ProjectileSpawn->SetupAttachment(TurretMesh);
+
+    Health = CreateDefaultSubobject<UHealthComponent>(TEXT("Health"));
 }
 
 void APawnBase::LookAt(const FVector Target)
@@ -41,5 +45,7 @@ void APawnBase::Fire()
 
 void APawnBase::OnDestroy()
 {
-    
+    const FVector Position = GetActorLocation();
+    UGameplayStatics::SpawnEmitterAtLocation(this, ExplosionEffect, Position);
+    UGameplayStatics::PlaySoundAtLocation(this, ExplosionSound, Position);
 }

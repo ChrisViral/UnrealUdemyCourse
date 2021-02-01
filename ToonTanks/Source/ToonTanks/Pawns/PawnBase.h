@@ -7,6 +7,8 @@
 #include "PawnBase.generated.h"
 
 class UCapsuleComponent;
+class UHealthComponent;
+class UParticleSystem;
 class AProjectileBase;
 
 UCLASS(Abstract)
@@ -17,12 +19,12 @@ class TOONTANKS_API APawnBase : public APawn
 public:
     APawnBase();
 
+    virtual void OnDestroy();
+
 protected:
     virtual void LookAt(const FVector Target);
 
     virtual void Fire();
-
-    virtual void OnDestroy();
 
 private:
     UPROPERTY(VisibleAnywhere, Category = "Components")
@@ -33,6 +35,12 @@ private:
     UStaticMeshComponent* TurretMesh;
     UPROPERTY(VisibleAnywhere, Category = "Components")
     USceneComponent* ProjectileSpawn;
+    UPROPERTY(VisibleAnywhere, Category = "Components")
+    UHealthComponent* Health;
     UPROPERTY(EditAnywhere, Category = "Projectile")
     TSubclassOf<AProjectileBase> ProjectileClass;
+    UPROPERTY(EditAnywhere, Category = "Effects")
+    UParticleSystem* ExplosionEffect;
+    UPROPERTY(EditAnywhere, Category = "Effects")
+    USoundBase* ExplosionSound;
 };
