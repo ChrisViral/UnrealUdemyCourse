@@ -1,7 +1,6 @@
 // Copyright © Christophe Savard 2021
 
 using UnrealBuildTool;
-using System.Collections.Generic;
 
 public class SimpleShooterEditorTarget : TargetRules
 {
@@ -9,6 +8,6 @@ public class SimpleShooterEditorTarget : TargetRules
 	{
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
-		ExtraModuleNames.AddRange( new string[] { "SimpleShooter" } );
+		ExtraModuleNames.Add("SimpleShooter");
 	}
 }
